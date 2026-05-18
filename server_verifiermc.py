@@ -45,6 +45,7 @@ if modo == "2":
                         message="O servidor ficou ONLINE!",
                         timeout=5
                     )
+                time.sleep(20)
             else:
                 print(f"O servidor {ip}:{port} está offline.")
                 time.sleep(900)  # espera 15 minutos antes de verificar novamente
