@@ -1,139 +1,105 @@
-# Minecraft Server Verifier
+# Minecraft Scripts
 
-Script em Python para verificar se um servidor de Minecraft está online usando a API pública do **mcsrvstat.us**.
+Coleção de scripts para Minecraft Bedrock e Java feitos em **Python** e **JavaScript**.
 
-Ele não escaneia portas aleatórias nem tenta invadir nada. Só consulta o que já está exposto publicamente e observa o resultado, com a paciência de quem encara o vazio e anota se ele respondeu.
+Este repositório começou como um projeto simples para verificar servidores Minecraft, mas evoluiu para algo maior: um lugar para reunir ferramentas, experimentos e automações relacionadas ao universo do Minecraft.
 
-## Funcionalidades
+Alguns scripts podem ser pequenos utilitários. Outros podem virar sistemas maiores com o tempo. Repositórios também mudam de identidade. Código é uma espécie de memória viva — às vezes organizada, às vezes não.
 
-- Verifica se um servidor está online ou offline
-- Aceita **IP + porta personalizada**
-- Tenta portas padrão automaticamente quando a porta não é informada
-- Possui **modo de verificação única**
-- Possui **modo de monitoramento contínuo**
-- Pode exibir notificações do sistema com `plyer`
+## Conteúdo do repositório
 
-## Requisitos
+Aqui você pode encontrar:
 
-- Python 3.x
-- Bibliotecas:
+- Scripts para Minecraft Bedrock
+- Scripts para Minecraft Java Edition
+- Ferramentas feitas em Python
+- Ferramentas feitas em JavaScript / Node.js
+- Automações e integrações
+- Testes e experimentos
+
+## Objetivo
+
+Criar uma coleção de scripts úteis e reutilizáveis para Minecraft, mantendo tudo em um único lugar.
+
+A ideia não é ser um framework gigante, mas uma espécie de caixa de ferramentas.
+
+## Estrutura
+
+A estrutura do repositório pode mudar conforme novos scripts forem adicionados.
+
+Exemplo:
+
+```text
+/python
+/javascript
+/bedrock
+/java
+/tools
+```
+
+Ou scripts individuais separados por função.
+
+## Como usar
+
+Cada script pode possuir:
+
+- Dependências próprias
+- Configurações específicas
+- Forma diferente de execução
+
+Antes de usar qualquer script:
+
+1. Leia os comentários ou README da pasta
+2. Instale as dependências necessárias
+3. Configure os arquivos necessários
+4. Execute usando a linguagem correspondente
+
+## Python
+
+Exemplo de instalação de dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+Ou:
 
 ```bash
 pip install requests plyer
 ```
 
-Se o Python não estiver no PATH, use o executável completo:
-
-```bash
-F:\python\python.exe -m pip install requests plyer
-```
-
-## Arquivo principal
-
-O script principal é:
-
-```bash
-server_verifiermc.py
-```
-
-## Como usar
-
-Execute pelo terminal:
-
-```bash
-python server_verifiermc.py
-```
-
-Ou, se necessário:
-
-```bash
-F:\python\python.exe server_verifiermc.py
-```
-
-### Via `.bat`
+## JavaScript / Node.js
 
 Exemplo:
 
-```bat
-@echo off
-echo Iniciando verificador de servidor Minecraft...
-"F:\python\python.exe" "C:\scripts\server_verifiermc.py"
-pause
+```bash
+npm install
+node arquivo.js
 ```
 
-## Modos de execução
+## Scripts atuais
 
-Ao iniciar, o script pede um modo:
+Atualmente o repositório inclui scripts como:
 
-- `1` → Verificação única
-- `2` → Monitoramento contínuo
+- verificador de servidores Minecraft
+- monitoramento simples de status
+- notificações
 
-### Modo 1 — verificação única
+Mais scripts serão adicionados com o tempo.
 
-- Solicita o IP do servidor
-- Permite informar uma porta
-- Se a porta for deixada em branco, testa automaticamente:
-  - `25565`
-  - `25566`
-  - `25567`
-  - `25568`
-  - `25569`
+## Possíveis futuros projetos
 
-### Modo 2 — monitoramento contínuo
+- Bots para Minecraft
+- Integração com Discord
+- Ferramentas para servidores Bedrock
+- Scripts de automação
+- APIs auxiliares
+- Dashboards simples
+- Ferramentas para administração de servidores
 
-- Faz verificações em loop
-- Mostra quando o servidor está online ou offline
-- Envia notificação do sistema quando detectar o servidor online
-- Usa intervalo de 15 minutos entre verificações quando o servidor está offline
+## Contribuição
 
-## Como funciona
-
-O script consulta a API:
-
-```text
-https://api.mcsrvstat.us/2/<ip>:<porta>
-```
-
-Essa API retorna informações públicas como:
-
-- status online/offline
-- jogadores online
-- versão do servidor
-
-## Notificações
-
-O projeto usa `plyer` para enviar notificações do sistema:
-
-```python
-from plyer import notification
-
-notification.notify(
-    title="Servidor Minecraft",
-    message="O servidor ficou ONLINE!",
-    timeout=5
-)
-```
-
-## Observações
-
-- Evite caminhos com acentos ao usar arquivos `.bat`
-- Instale as dependências no mesmo Python usado para executar o script
-- APIs públicas podem ter limite de requisições
-- Se a notificação não aparecer, o sistema pode não suportar esse recurso corretamente
-
-## Limitações
-
-- O script depende da disponibilidade da API pública
-- A lógica de verificação é simples e não guarda histórico
-- O monitoramento contínuo usa intervalo fixo, sem configuração via interface
-
-## Possíveis melhorias
-
-- Detectar mudança de estado automaticamente (`offline -> online`)
-- Adicionar intervalo configurável
-- Integrar com Discord ou Telegram
-- Criar uma interface gráfica simples
-- Melhorar a seleção automática de portas
+Sugestões e melhorias são bem-vindas.
 
 ## Licença
 
