@@ -101,6 +101,5 @@ Mais scripts serão adicionados com o tempo.
 
 Sugestões e melhorias são bem-vindas.
 
-## Licença
-
-Ainda não definida.
+## Licença 
+mit
